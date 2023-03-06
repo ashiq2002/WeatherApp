@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="weather">Weather</string>
+    <string name="search">search image</string>
+</resources>
