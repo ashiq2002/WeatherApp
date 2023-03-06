@@ -8,12 +8,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.setbitzero.weatherapp.databinding.ActivityMainBinding
 import com.setbitzero.weatherapp.repository.WeatherRepo
 import com.setbitzero.weatherapp.retrofit.RetroClient
 import com.setbitzero.weatherapp.service.MyReceiver
+import com.setbitzero.weatherapp.util.NetworkUtil
 import com.setbitzero.weatherapp.viewModel.MainViewModel
 import com.setbitzero.weatherapp.viewModel.MainViewModelFactory
 
@@ -38,6 +40,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         super.onCreate(savedInstanceState)
+
+        //check is user online or not
+        if(!NetworkUtil.isOnline(this)){
+            Toast.makeText(this, "Please check you internet connection!", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
