@@ -32,7 +32,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val weatherRepo = WeatherRepo(RetroClient.apiService)
         mainViewModel = ViewModelProvider(this, MainViewModelFactory(weatherRepo))[MainViewModel::class.java]
-        saveCityName("Dhaka")
+
+        if(getCityName().isEmpty()){ // if City name is empty then save default data
+            saveCityName("Dhaka")
+        }
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
